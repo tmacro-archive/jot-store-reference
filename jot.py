@@ -42,7 +42,7 @@ BUILT_IN_DEFAULTS = {
 
 # To make better use of service worker caches 
 # we define a list of virtual 'static' files to make available
-STATIC_ASSETS = {}
+
 
 # Utility Functions
 def recursivelyUpdateDict(orig, new):
@@ -459,11 +459,7 @@ class Request(BaseHTTPRequestHandler):
 def init(port):
 	return HTTPServer(('', port), Request)
 
-def get_embedded_file(path):
-	encoded = STATIC_ASSETS.get(path, None)
-	if encoded:
-		return base64.b64decode(encoded).decode('utf-8')
-	return None
+
 # Load the configuration
 APP_CONFIG = recursivelyUpdateDict(BUILT_IN_DEFAULTS, USER_CONFIG)
 config = load_config(APP_CONFIG)
@@ -474,6 +470,9 @@ app = Routes()
 
 # Create NoteStore
 store = NoteStore()
+
+#---Insert---
+#This comment is used by the jot builder, DO NOT REMOVE!
 
 # Add Routes
 # Serve app page
@@ -555,7 +554,6 @@ def get_stack(id):
 @app.route('/stack/<id>', methods=['PUT'])
 def push_to_stack(id):
 	return 
-
 
 
 httpd = init(config.port)

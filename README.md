@@ -36,6 +36,7 @@ All responses from this API will be json encoded and follow this high level sche
 			"tags":	["tag1", "tag2"],
 			"body": "I'm an example note"
 		}
+		
 	```
 *	Success Response
 	*	Code: `200`
@@ -47,6 +48,7 @@ All responses from this API will be json encoded and follow this high level sche
 				"tags":	["tag1", "tag2"],
 				"body": "I'm an example note"
 			}
+
 		```
 
 #### Load a note
@@ -72,6 +74,7 @@ All responses from this API will be json encoded and follow this high level sche
 				"created": 	"2016-11-15T00:17:34.041540", 
 				"modified": "2016-11-15T00:17:34.041540"
 			}
+
 		```
 
 *	Failed Response
@@ -102,7 +105,9 @@ All responses from this API will be json encoded and follow this high level sche
 			"tags":	["tag1", "tag2"],
 			"body": "I'm an updated note"
 		}
+
 	```
+
 *	Success Response
 	*	Code: `200`
 		Content:
@@ -113,7 +118,9 @@ All responses from this API will be json encoded and follow this high level sche
 				"tags":	["tag1", "tag2"],
 				"body": "I'm an updated note"
 			}
+			
 		```
+
 #### Search for notes
 
 *	URL
