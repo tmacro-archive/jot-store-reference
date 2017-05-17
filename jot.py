@@ -472,6 +472,7 @@ app = Routes()
 store = NoteStore()
 
 #---Insert---
+
 #This comment is used by the jot builder, DO NOT REMOVE!
 
 # Add Routes
