@@ -476,32 +476,6 @@ store = NoteStore()
 #This comment is used by the jot builder, DO NOT REMOVE!
 
 # Add Routes
-# Serve app page
-@app.route('/')
-def server_home():
-	f = get_embedded_file('/index.html')
-	if f:
-		return f
-	raise Exception('No bundled index.html')
-
-# Serve static files under /static/
-@app.route('/static/<path>')
-def get_static(path):
-	f = get_embedded_file(path)
-	if f:
-		return f
-	raise Exception('No bundled file:%s'%path)
-
-
-@app.route('/favicon.ico')
-def fav():
-	with open("favicon.png", 'rb') as f:
-		return f.read()
-
-@app.route('/bundle.js')
-def js():
-	with open("bundle.js",encoding='utf-8') as f:
-		return f.read()
 
 ## Add Note
 @app.route('/note', methods=['PUT'])
