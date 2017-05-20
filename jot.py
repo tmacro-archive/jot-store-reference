@@ -1,6 +1,7 @@
 import logging
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from collections import defaultdict, namedtuple
+import threading
 import json
 import datetime
 import os.path
@@ -10,6 +11,9 @@ import re
 import urllib.parse as urlparse
 import base64 
 # Configuration
+
+jopen = open 
+# This is so one can easily override the global open method
 
 # Insert your configuration here
 USER_CONFIG = {
@@ -166,12 +170,12 @@ class File:
 		return self._write()
 
 	def _write(self):
-		with open(self._path, 'w') as f:
+		with jopen(self._path, 'w') as f:
 			json.dump(self._attr, f)
 		return True
 
 	def _read(self):
-		with open(self._path) as f:
+		with jopen(self._path) as f:
 			self._attr = json.load(f)
 
 	def _get_attr(self, key):
@@ -276,12 +280,12 @@ class NoteStore:
 
 	def _load_ledger(self):
 		if os.path.isfile(self._rootDir + '/ledger.json'):
-			with open(self._rootDir + '/ledger.json') as f:
+			with jopen(self._rootDir + '/ledger.json') as f:
 				return json.load(f)
 		return dict()
 
 	def _save_ledger(self, ledger):
-		with open(self._rootDir + '/ledger.json', 'w') as f:
+		with jopen(self._rootDir + '/ledger.json', 'w') as f:
 			json.dump(ledger, f, indent=1)
 		return True
 
@@ -530,6 +534,8 @@ def get_stack(id):
 def push_to_stack(id):
 	return 
 
-
 httpd = init(config.port)
-httpd.serve_forever()
+srv = threading.Thread(target=lambda: httpd.serve_forever())
+srv.start()
+input('Press any key to stop...')
+httpd.shutdown()
