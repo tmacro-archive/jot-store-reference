@@ -10,7 +10,7 @@ Jot targets the latest python stable release, at this time, python 3.6
 All responses from this API will be json encoded and follow this high level schema
 ```
 	{
-		"success": true|false,	# Operation exit status
+		"success": true|false,		# Operation exit status
 		"results": null			# Operation results
 	}
 ```
@@ -29,6 +29,7 @@ All responses from this API will be json encoded and follow this high level sche
 	*	`title` the note title
 	*	`tags`	a list of tags to be added to the created note
 	*	`body`	the body of the note
+	
 	Example:
 	```
 		{
@@ -40,7 +41,7 @@ All responses from this API will be json encoded and follow this high level sche
 	```
 *	Success Response
 	*	Code: `200`
-		Content:
+	*	Content:
 		```
 			{
 				"id": "3625949699dd4d8dbc03adfac35c726a",
@@ -64,7 +65,7 @@ All responses from this API will be json encoded and follow this high level sche
 
 *	Success Response
 	*	Code: `200`
-		Content: 
+	*	Content: 
 		```
 			{
 				"id": "7edb7fbc655b4a7ca8a57a7e4985dfc2", 
@@ -79,7 +80,7 @@ All responses from this API will be json encoded and follow this high level sche
 
 *	Failed Response
 	*	Code: `200`
-		Content: `{"success": false, "results": null}`
+	*	Content: `{"success": false, "results": null}`
 
 ### Update a note
 
@@ -97,6 +98,7 @@ All responses from this API will be json encoded and follow this high level sche
 	*	`title` the note title
 	*	`tags`	a list of tags that wil be set on the note
 	*	`body`	the body of the note
+	
 	Example:
 	```
 		{
@@ -110,7 +112,7 @@ All responses from this API will be json encoded and follow this high level sche
 
 *	Success Response
 	*	Code: `200`
-		Content:
+	*	Content:
 		```
 			{
 				"id": "3625949699dd4d8dbc03adfac35c726a",
@@ -150,7 +152,7 @@ All responses from this API will be json encoded and follow this high level sche
 
 *	Success Response
 	*	Code: `200`
-		Content: 
+	*	Content: 
 		```
 			[
 				{
@@ -175,4 +177,4 @@ All responses from this API will be json encoded and follow this high level sche
 
 *	Failed Response
 	*	Code: `200`
-		Content: `{"success": false, "results": null}`
+	*	Content: `{"success": false, "results": null}`
