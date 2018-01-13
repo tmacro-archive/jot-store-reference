@@ -93,13 +93,14 @@ All responses from this API will be json encoded and follow this high level sche
 	`PATCH`
 
 *	Data Parameters
-	Request data should be json encoded.
-	All parameters are optional. 
-	Passing a empty dictionary `{}` will "touch" the note by updating it's modified timestamp
 	*	`id`	the note id to update
 	*	`title` the note title
 	*	`tags`	a list of tags that wil be set on the note
 	*	`body`	the body of the note
+	
+		Request data should be json encoded.
+	All parameters are optional. 
+	Passing a empty dictionary `{}` will "touch" the note by updating it's modified timestamp
 	
 	Example:
 	```
