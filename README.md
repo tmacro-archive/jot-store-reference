@@ -23,12 +23,14 @@ All responses from this API will be json encoded and follow this high level sche
 	`PUT`
 
 *	Data Parameters
-	Request data should be json encoded.
-	All parameters are optional. 
-	A empty dictionary `{}` can be used to create a blank note.
 	*	`title` the note title
 	*	`tags`	a list of tags to be added to the created note
 	*	`body`	the body of the note
+	
+	
+	Request data should be json encoded.
+	All parameters are optional. 
+	A empty dictionary `{}` can be used to create a blank note.
 	
 	Example:
 	```
